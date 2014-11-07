@@ -1,0 +1,28 @@
+<h1>Listing salmons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @salmons.each do |salmon| %>
+      <tr>
+        <td><%= link_to 'Show', salmon %></td>
+        <td><%= link_to 'Edit', edit_salmon_path(salmon) %></td>
+        <td><%= link_to 'Destroy', salmon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= salmon.name %></td>
+        <% if salmon.river %>
+        <td><%= salmon.river.name %></td>
+        <% end %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Salmon', new_salmon_path %>
